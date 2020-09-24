@@ -53,16 +53,18 @@ export default {
   }
   .Logo{
     text-align: center;
-    font-weight: 600;
+    font-weight: 300;
     font-size: 22px;
     cursor: pointer;
   }
   .NavBar_r > ul{
-    display: flex;
     list-style: none;
+    display: flex;
+    flex-direction:row-reverse;
   }
   .NavBar_r > ul > li {
-    flex: 1;
+    
+    padding: 0 10px;
     text-align: right;
     cursor: pointer;
     transition: all .3s ease;

@@ -69,6 +69,7 @@ export default {
     color: white;
     font-weight: 100;
     display: inline-block;
+    z-index: 99;
   }
   .ShadowBox{
     display: inline-block;

@@ -4,7 +4,15 @@
       <div class="sidebar">
         <div @click="colseBtn">{{sidebarStu}}</div>
         <ul>
-          <li v-for="item in ListData" :key="item+1">{{item}}</li>
+          <li v-for="item in ListData" :key="item.tit" @click="listClick(item)">{{item.tit}}
+            <transition name="toggle">
+              <ul class="category" v-show="item.stu">
+                <li v-for="category in item.category" :key="category">
+                  {{category}}
+                </li>
+              </ul>
+            </transition>
+          </li>
         </ul>
       </div>
 
@@ -18,7 +26,18 @@
 export default {
   data() {
     return {
-      ListData: ["套装系列", "护肤系列", "尊享服务" ,"The House"],
+      ListData: {
+        one: {tit: "套装系列",
+              stu:false,
+              category:["我上早自习吃柠檬1", "1我上早自习吃柠檬", "我上1早自习吃柠檬", "我上早自1习吃柠檬"]
+        },
+        two: {tit: "护肤系列",
+              stu:false,},
+        three: {tit: "尊享服务",
+                stu:false,},
+        four: {tit: "The House",
+               stu:false,}
+        },
       colseStu: Boolean,
     }
   },
@@ -32,6 +51,9 @@ export default {
     colseBtn(){
         this.colseStu = !this.colseStu;
         this.$emit("colseBtn", this.colseStu);
+    },
+    listClick(item){
+      item.stu = !item.stu;
     }
   }
 }
@@ -82,6 +104,8 @@ export default {
     padding: 15px 0;
     text-align: left;
     border-bottom:1px solid #ddd;
+    line-height: 100%;
+    
   }
   li::before{
     content: '+';
@@ -91,6 +115,25 @@ export default {
     font-size: 24px;
     float: right;
     transform: translateY(-50%);
+  }
+  .category{
+    padding: 10px 30px;
+    height: 135px;
+    font-size: 13px;
+    transition: all .3s ease;
+  }
+  .category > li{
+    text-align: left;
+    border: none;
+    padding: 8px 0;
+    transition: all .3s ease;
+  }
+  .category > li:hover{
+    color: #ddd;
+  }
+  .category > li::before{
+    content: '';
+    display: none;
   }
   .sidebar-enter-active{
     animation: sidebar-in .3s;
@@ -104,6 +147,22 @@ export default {
     }
     100% {
       left: 0px;
+    }
+  }
+  .toggle-enter-active{
+    animation: toggle .3s;
+  }
+  .toggle-leave-to{
+    animation: toggle .3s reverse;
+  }
+  @keyframes toggle {
+    0%{
+      height: 0;
+      color: transparent;
+    };
+    100%{
+      height: 135px;
+      color: white;
     }
   }
 </style>

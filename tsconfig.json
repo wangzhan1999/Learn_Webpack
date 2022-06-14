@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./src/*"]
+    },    
+    "esModuleInterop": true,                            
+    "forceConsistentCasingInFileNames": true, 
+    "strict": true,  
+    "target": "esnext",
+    "module": "esnext",
+    "jsx": "preserve",
+    "moduleResolution": "node"
+  },
+  "include": ["src/**/*.ts","src/**/*.d.ts","src/**/*.tsx","src/**/*.vue"],
+  "exclude": ["node_modules"]
+}

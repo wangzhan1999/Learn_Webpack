@@ -1,9 +1,8 @@
 <template>
   <nav class="firstWebpackProgram">
     <div class="nav-warpper">
-      <a href="javascript:void(0)">
-        <img src="../assets/favicon.ico" alt="WangZhan" />
-        Wangzhan
+      <a href="/">
+        <img src="../assets/favicon.jpg" alt="WangZhan" />
       </a>
       <a href="javascript:void(0)">Home</a>
       <a href="javascript:void(0)">Comm</a>
@@ -11,7 +10,7 @@
       <a href="javascript:void(0)">Join</a>
       <a-dropdown>
       <a class="ant-dropdown-link" @click.prevent>
-        Hover me﹀
+        Hover me
         <DownOutlined />
       </a>
       <template #overlay>
@@ -32,9 +31,12 @@
   </nav>
 </template>
 <script lang="ts">
-import { defineComponent, Ref, ref } from "vue";
+import { defineComponent, ref } from "vue";
+import { DownOutlined } from '@ant-design/icons-vue';
 export default defineComponent({
-  components: {},
+  components: {
+    DownOutlined
+  },
   props: {
     str: {
       type: String,
@@ -64,22 +66,23 @@ export default defineComponent({
 </script>
 <style lang="less" scoped>
 .firstWebpackProgram{
-  height: 70px;
   box-shadow: 0 2px 10px #f0f1f2 ;
   .nav-warpper{
     width: 1080px;
+    height: 64px;
+    line-height: 64px;
     margin: 0 auto;
     a{
       padding: 0 10px;
       &:first-of-type{
-        font-size: 40px;
         img{
           width:44px;
+          height: 44px;
         }
       }
-      &:hover{
-        color: black;
-      }
+      // &:hover{
+      //   color: rgb(170, 168, 186);
+      // }
     }
   }
   }

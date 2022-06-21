@@ -1,7 +1,12 @@
 <template>
     <div>
-        <Nav :str='hellow'></Nav>
+        <router-view></router-view>
+        <a-button>BTN</a-button>
     </div>
+
+    <!-- <div>
+        <Nav :str='hellow'></Nav>
+    </div> -->
 </template>
 
 <script lang="ts">
@@ -11,7 +16,7 @@ import Nav from './components/Nav.vue'
 export default defineComponent({
     components:{Nav},
     setup(){
-        let hellow = "Hellow"
+        let hellow:string = "Hellow"
         return{
             hellow
         }

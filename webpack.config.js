@@ -43,7 +43,13 @@ const myFirstWebpackAppConfig = {
                         noIeCompat: true,
                         javascriptEnabled:true,
                         math: 'always',
-                        strictMath: false
+                        strictMath: false,
+                        modifyVars: {
+                            'primary-color': '#1b1b1b',
+                            'link-color': '#1b1b1b',
+                            'border-radius-base': '2px',
+                        },
+                        javascriptEnabled: true,
                     }
                 }]
             },
